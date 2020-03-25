@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+  <script src="{{ url_for('static', filename='index.js') }}"></script>
+
+ FLack
+
+    <form class="nav-item active", action="{{ url_for('signout') }}" method="post">
+       <button class="btn btn-primary btn-lg btn-block">{{ user }} Signout</button>
+    </form>
+
+{% endblock %}
+
+{% block body %}
+
+        <h1>messages</h1>
+         <ul id="messages">
+         </ul>
+        <form id="new-message">
+          <input id="message" autocomplete="off" autofocus placeholder="New message" type="text">
+          <input type="submit">
+        </form>
+
+
+{% endblock%}

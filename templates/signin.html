@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+ FLack
+{% endblock %}
+
+{% block body %}
+
+<p>
+  Welcome to Flack, where you can create channels
+  and chat with other users in real time. please enter your name to start.
+
+   <form  action="{{ url_for('signin') }}" method="post">
+     <input name="username" autocomplete="off" autofocus placeholder="Enter name" type="text">
+     <input type ="submit">
+  </form>
+{% endblock %}

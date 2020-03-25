@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+ FLack
+ <form class="nav-item active" action="{{ url_for('signout') }}" method="post">
+   <input type="hidden" value="{{request.args.get('next','') }}"/>
+    <button class="btn btn-primary btn-lg btn-block">{{ user }} Signout</button>
+ </form>
+{% endblock %}
+
+{% block body %}
+ <h2>select a channel to start charting</h2>
+    {% for channel in  channels %}
+  	     <li>
+           <a href="{{ url_for('channel',channel=channel) }}" >
+             {{ channel }}
+        </li>
+
+    {% else %}
+          <li>No book by was found! please try again</li>
+    {% endfor %}
+  </ul>
+
+{% endblock %}
