@@ -1,3 +1,4 @@
 Flask
 Flask-SocketIO
 gunicorn==20.0.4
+requests==2.22.0
