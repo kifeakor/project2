@@ -1,2 +1,2 @@
-web gunicorn -k geventwebsocket.gunicorn.workers.GeventWebSocketWorker -w
+gunicorn -k geventwebsocket.gunicorn.workers.GeventWebSocketWorker -w
 1 module:app
