@@ -41,9 +41,7 @@ Flask-Session==0.3.1
 Flask-SocketIO
 fsspec==0.5.2
 future==0.17.1
-gevent==1.4.0
-gevent-socketio
-Gevent-websocket
+gevent==1.5.0
 glob2==0.7
 greenlet==0.4.15
 gunicorn==20.0.4
