@@ -16,5 +16,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     socket.on('announce joined', data => {
       alert(`${data.user} joined`)
-    });    
+    });
   });
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelector('#new-message').onsubmit = () =>{
+      document.querySelector('#message').value ='';
+
+    }
