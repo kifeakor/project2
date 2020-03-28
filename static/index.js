@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('#new-message').onsubmit = () =>{
       const message = document.querySelector('#message').value;
       socket.emit('new message', {'message':message});
+      document.querySelector('#message').value ='';
       return false
       };
     });
@@ -18,8 +19,3 @@ document.addEventListener('DOMContentLoaded', () => {
       alert(`${data.user} joined`)
     });
   });
-  document.addEventListener('DOMContentLoaded', () => {
-    document.querySelector('#new-message').onsubmit = () =>{
-      document.querySelector('#message').value ='';
-
-    }
