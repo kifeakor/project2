@@ -1,34 +1,25 @@
 {% extends "layout.html" %}
 
-{% block heading %}
- FLack
-
-    <form class="nav-item active" action="{{ url_for('signout') }}" method="post">
-       <input type="hidden" value="{{request.args.get('next','') }}"/>
-       <button class="btn btn-primary btn-lg btn-block">{{ user }} Signout</button>
-    </form>
+{% block title %}
+    Flack Chat
 {% endblock %}
 
-{% block body %}
- <h2> Create a new channel to start chatting</h2>
-  <form action="/create" method="post">
-    <div class ="form-group">
-      <input type="text" name="channel" id="channel" autofocus>
-    </div>
-    <button class="btn btn-primary" type="submit">Create</button>
-  </form>
+{% block content %}
+    <h2>Create a new channel or join an existent one!</h2>
+    <form action="/create" method="post">
+        <div class="form-group">
+            <input type="text" class="form-control" name="channel" id="channel" autofocus>
+        </div>
+        <button class="btn btn-primary" type="submit">Create</button>
+    </form>
 
-  <h3>Or select an existing channel below</h3>
-   {% for channel in  channels %}
-   	 <li>
-      <a href="{{ url_for('channel',channel=channel) }}" >
-      {{ channel }}
-     </li>
-   {% else %}
-    <ul>
-     <li>No available Channel</li>
-    </ul>
+    <script>
 
-   {% endfor %}
+        if (localStorage.getItem('last_channel')) {
+            // Redirect to last channel
+            let channel = localStorage.getItem('last_channel');
+            window.location.replace('/channels/' + channel);
+        }
 
-{% endblock%}
+    </script>
+{% endblock %}
