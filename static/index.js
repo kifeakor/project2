@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
    socket.on('announce message', data => {
       const li = document.createElement('li');
-      li.innerHTML= `${data.user} Said:${data.message}`;
+      li.innerHTML= `${data.user} Said:${data.message} Time:${data.current}`;
       document.querySelector('#messages').append(li);
 
     });

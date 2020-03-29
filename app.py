@@ -1,6 +1,6 @@
 import os
 import requests
-import datetime, time
+from time import strftime
 from collections import deque
 from collection import login_required
 from flask import Flask, render_template, jsonify, request, session, redirect
@@ -15,6 +15,7 @@ socketio = SocketIO(app)
 channelCreated = []
 userslogged = []
 channelMessages = dict()
+strftime("%m/%d/%Y %H:%M")
 
 @app.route("/")
 @login_required
@@ -75,7 +76,9 @@ def channel(channel):
 def message(data):
     message = data["message"]
     user=session['username']
-    emit("announce message", {"message":message, "user":user}, broadcast=True)
+    current=strftime("%a %d %b %Y %H:%M:%S")
+    print(current)
+    emit("announce message", {"message":message, "user":user, "current":current}, broadcast=True)
 
 @socketio.on('joined')
 def joined():
