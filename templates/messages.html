@@ -3,7 +3,7 @@
 {% block heading %}
   <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
   <script src="{{ url_for('static', filename='index.js') }}"></script>
-  
+
 
  FLack
 
@@ -12,10 +12,13 @@
     </form>
 
 {% endblock %}
+{% block title %}
+  <h1>{{ session.current_channel }} group</h1>
+{% endblock %}
 
 {% block body %}
 
-        <h1>messages</h1>
+        messages
          <ul id="messages">
          </ul>
         <form id="new-message">

@@ -67,10 +67,15 @@ def create():
     else:
         return "try again"
 
-@app.route("/channel<channel>")
+@app.route("/channel<channel>", methods=['GET', 'POST'])
+@login_required
 def channel(channel):
+    session['current_channel']=channel
     user=session['username']
-    return render_template("messages.html", user=user)
+    if request.method =="POST":
+        return redirect("/")
+    else:
+        return render_template("messages.html", user=user, )
 
 @socketio.on("new message")
 def message(data):
