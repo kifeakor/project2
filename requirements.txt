@@ -22,7 +22,7 @@ boto==2.49.0
 Bottleneck==1.2.1
 colorama==0.4.1
 contextlib2==0.6.0
-cryptography==2.7
+cryptography==3.2
 cycler==0.10.0
 Cython==0.29.13
 cytoolz==0.10.0
